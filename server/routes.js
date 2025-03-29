@@ -4,7 +4,8 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const send = require("./message");
 const { v4: uuidv4 } = require('uuid'); 
-const Delivery = require("./Delivarys")
+const Delivery = require("./Delivarys");
+const Doctor = require("./Doctor");
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -21,6 +22,11 @@ router.get("/medcards", async (req, res) => {
     }
 });
 
+router.post("/medications",async (req,res)=>{
+    const {id,medications}=req.body
+    const pasient = await Medcard.findById(id)
+    pasient.medications=medications
+})
 router.post("/register", async (req, res) => {
     const {
         name,
@@ -36,10 +42,10 @@ router.post("/register", async (req, res) => {
     } = req.body;
 
     console.log(req.body);
-
+    const doc=await Doctor.findById(doctorId)
     const mailOptions = {
         from: 'mohanavamsi14@gmail.com',
-        to: doctorId,
+        to: doc.email,
         subject: 'New Registration',
         html: `
             <div style="font-family: Arial, sans-serif; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
@@ -77,8 +83,8 @@ router.post("/register", async (req, res) => {
 });
 
 
-router.get("/conform/:email/:phone", async (req, res) => {
-    const { email, phone } = req.params;
+router.get("/conform/:email/:id", async (req, res) => {
+    const { email, id } = req.params;
     try {
         const mailOptions = {
             from: 'mohanavamsi14@gmail.com',
@@ -94,7 +100,9 @@ router.get("/conform/:email/:phone", async (req, res) => {
             `
         };
         await transporter.sendMail(mailOptions);
-        // await send(`Hey hi your schedule is done join meeting by clicking the link below on the scheduled date at 9:30 https://hospo-ten.vercel.app/meeting/${email}`, phone);
+        const pasient=await Medcard.findById(id)
+        pasient.confirm=true
+        await pasient.save()
         res.status(200).json({ message: 'Booking confirmed successfully' });
     } catch (error) {
         console.log(error);

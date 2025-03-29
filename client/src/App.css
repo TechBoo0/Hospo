@@ -43,7 +43,7 @@ body {
 .get-in-touch {
     color: #2E3434;
     border: 1px solid #2E3434;
-    width: 150%;
+    width: 110%;
     padding-left: 5%;
     padding-top: 4%;
     padding-bottom: 4%;
@@ -128,11 +128,7 @@ body {
     margin-top: 4%;
     margin-bottom: 4%;
 }
-/* .tracking-div-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
+
 .delivery-boy-image {
     width: 250px;
     height: 250px;

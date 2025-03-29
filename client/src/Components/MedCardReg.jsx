@@ -114,7 +114,7 @@ function MedCardReg() {
                         </div>
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="medications" className="block text-black font-semibold mb-1">Medications:</label>
+                        <label htmlFor="medications" className="block text-black font-semibold mb-1">Medications (If using any):</label>
                         {['Aspirin', 'Ibuprofen', 'Acetaminophen', 'Antibiotics', 'Antihistamines'].map((medication) => (
                             <label key={medication} className="flex items-center">
                                 <input type="checkbox" value={medication} onChange={handleMedicationsChange} className="mr-2" />

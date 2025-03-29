@@ -24,6 +24,19 @@ function Doctors() {
                   "email":"jatin.batchu@kalvium.community",
                   "image": "https://media.licdn.com/dms/image/v2/D5603AQFXf2O2E8ZUOw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723775958106?e=1732752000&v=beta&t=nuxuA3anGSLXX_8A7fJLKirAiUzP7p2Qatx6Dx9fl-U"
                 },
+                {                  "id": 1,
+                  "name": "Dr. Vamsi",
+                  "description": "Cardiologist with 10 years of experience.",
+                  "email":"mohana.gangisetti@kalvium.community",
+                  "image": "https://media.licdn.com/dms/image/v2/D5603AQFXf2O2E8ZUOw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723775958106?e=1732752000&v=beta&t=nuxuA3anGSLXX_8A7fJLKirAiUzP7p2Qatx6Dx9fl-U"
+},
+                {
+                  "id": 134,
+                  "name": "Dr. Vinay Ready",
+                  "description": "Cardiologist with 10 years of experience.",
+                  "email":"vinnugollakoti289@gmail.com",
+                  "image": "https://via.placeholder.com/150"
+                },
                 {
                   "id": 2,
                   "name": "Dr. Jane Smith",
@@ -218,7 +231,7 @@ function Doctors() {
                                 <p className="text-gray-600">{doctor.description}</p>
                             </div>
                         </div>
-                        <Link to={`/medcardreg/${doctor.email}`} className="bg-[#2E3434] p-2 rounded-lg text-[#DEFFDA] hover:bg-transparent hover:text-[#2E3434] border border-black font-semibold">
+                        <Link to={`/medcardreg/67e84c99bf7088984573a180`} className="bg-[#2E3434] p-2 rounded-lg text-[#DEFFDA] hover:bg-transparent hover:text-[#2E3434] border border-black font-semibold">
                             Book Appointment
                         </Link>
                     </li>

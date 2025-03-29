@@ -9,6 +9,7 @@ const medcardSchema = new mongoose.Schema({
     symptoms: { type: [String], default: [] },
     medications: { type: [String], default: [] },
     date: { type: Date, required: true },
+    confirm:{type:Boolean,default:false},
     doctorId: { type: String, required: true }
 });
 
