@@ -9,7 +9,7 @@ const socket = io("https://hospo.onrender.com");
 function Meeting() {
     const [stream, setStream] = useState();
     const [peerId, setPeerId] = useState('');
-    const { id } = useParams();
+    const { userid } = useParams();
     const peerInstance = useRef(null);
     const localVideoRef = useRef();
     const remoteVideoRef = useRef();
