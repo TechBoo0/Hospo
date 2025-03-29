@@ -19,7 +19,7 @@ function Meeting() {
     const [isConnecting, setIsConnecting] = useState(false);
     const [showControls, setShowControls] = useState(true);
     const nav = useNavigate();
-    const name = id;
+    const name = userid;
     
     // Hide controls after inactivity
     useEffect(() => {
