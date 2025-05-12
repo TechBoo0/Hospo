@@ -29,7 +29,6 @@ const App = () => {
         <Route path="/track" element={<ProtectedRoute element={<TrackDelivery />} />} />
         <Route path="/doc" element={<ProtectedRoute element={<Docmet />} />} />
         <Route path="/error" element={<Glitch />} />
-        <Route path="/auth" element={<Auth />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
