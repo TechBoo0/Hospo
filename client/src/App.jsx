@@ -17,16 +17,6 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   localStorage.setItem("delivery", false);
 
-  const isAuthenticated = !!localStorage.getItem("user");
-
-  const ProtectedRoute = ({element}) => {
-    if (!isAuthenticated) {
-      toast.warning("Please log in to access this page!", { position: "top-right" });
-      return <Navigate to="/" />;
-    }
-    return element;
-  };
-
   return (
     <>
       <ToastContainer />
