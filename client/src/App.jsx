@@ -17,29 +17,18 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   localStorage.setItem("delivery", false);
 
-  const isAuthenticated = !!localStorage.getItem("user");
-
-  const ProtectedRoute = ({element}) => {
-    if (!isAuthenticated) {
-      toast.warning("Please log in to access this page!", { position: "top-right" });
-      return <Navigate to="/" />;
-    }
-    return element;
-  };
-
   return (
     <>
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/doctors" element={<ProtectedRoute element={<Doctors />} />} />
-        <Route path="/medcardreg/:doctorId" element={<ProtectedRoute element={<MedCardReg />} />} />
-        <Route path="/meeting/:userid" element={<ProtectedRoute element={<Meeting />} />} />
-        <Route path="/delivary" element={<ProtectedRoute element={<DeliveryBoy />} />} />
-        <Route path="/track" element={<ProtectedRoute element={<TrackDelivery />} />} />
-        <Route path="/doc" element={<ProtectedRoute element={<Docmet />} />} />
+        <Route path="/doctors" element={<Doctors />}  />
+        <Route path="/medcardreg/:doctorId" element={<MedCardReg />}  />
+        <Route path="/meeting/:userid" element={ <Meeting />}  />
+        <Route path="/delivary" element={ <DeliveryBoy />} />
+        <Route path="/track" element={ <TrackDelivery />}  />
+        <Route path="/doc" element={ <Docmet />}  />
         <Route path="/error" element={<Glitch />} />
-        <Route path="/auth" element={<Auth />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
