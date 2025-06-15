@@ -2,7 +2,6 @@ const express = require("express");
 const Medcard = require("./Medcard");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const send = require("./message");
 const { v4: uuidv4 } = require('uuid'); 
 const Delivery = require("./Delivarys");
 const Doctor = require("./Doctor");
