@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import  api  from '../api';
+import  {api}  from '../api';
 
 function MedCardReg() {
     const { doctorId } = useParams();

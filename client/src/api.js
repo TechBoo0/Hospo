@@ -1,1 +1,1 @@
-export default  "https://hospo.onrender.com"
+export const api =  "https://hospo.onrender.com"
