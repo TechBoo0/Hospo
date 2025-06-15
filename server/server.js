@@ -41,6 +41,6 @@ io.on("connection",(socket)=>{
 })
 
 htp.listen(6001,async ()=>{
-    await mongoose.connect("mongodb+srv://mohanavamsi14:techboohospo@cluster0.bk07f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    await mongoose.connect("mongodb+srv://mohanavamsi14:vamsi@cluster0.bk07f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     console.log("http://localhost:6001")
 })

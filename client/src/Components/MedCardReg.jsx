@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import  api  from '../api';
 
 function MedCardReg() {
     const { doctorId } = useParams();
@@ -60,7 +61,7 @@ function MedCardReg() {
         e.preventDefault();
         console.log(formData);
 
-        axios.post('https://hospo.onrender.com/register', formData)
+        axios.post(`${api}/register`, formData)
             .then(response => {
                 console.log('Success:', response.data);
                 toast.success("Thanks for choosing Hospo. Your doctor will send you an email.", { position: "top-right" });

@@ -9,7 +9,7 @@ const socket = io("https://hospo.onrender.com");
 function Meeting() {
     const [stream, setStream] = useState();
     const [peerId, setPeerId] = useState('');
-    const { id } = useParams();
+    const { userid } = useParams();
     const peerInstance = useRef(null);
     const localVideoRef = useRef();
     const remoteVideoRef = useRef();
@@ -19,7 +19,7 @@ function Meeting() {
     const [isConnecting, setIsConnecting] = useState(false);
     const [showControls, setShowControls] = useState(true);
     const nav = useNavigate();
-    const name = id;
+    const name = userid;
     
     // Hide controls after inactivity
     useEffect(() => {

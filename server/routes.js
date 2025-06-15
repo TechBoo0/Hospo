@@ -43,6 +43,7 @@ router.post("/register", async (req, res) => {
 
     console.log(req.body);
     const doc=await Doctor.findById(doctorId)
+    console.log(doc);
     const mailOptions = {
         from: 'mohanavamsi14@gmail.com',
         to: doc.email,
@@ -156,6 +157,5 @@ router.post("/delivery", async (req, res) => {
         return res.status(500).json({ message: 'Error creating delivery', error });
     }
 });
-
 
 module.exports = router;

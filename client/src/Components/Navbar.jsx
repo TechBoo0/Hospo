@@ -1,27 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'; 
-import { FaUserCircle } from "react-icons/fa";
-import { toast } from "react-toastify";
-
 const Navbar = () => {
     const navigate = useNavigate();
 
     const user = JSON.parse(localStorage.getItem("user")) || null;  
     console.log("User data from localStorage:", user); 
 
-    const isAuthenticated = user; 
-
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        toast.success("Logged out successfully!", { position: "top-right" });
-        navigate("/auth");
-    };
-
-    const handleProtectedClick = (e) => {
-        if (!isAuthenticated) {
-            e.preventDefault();
-            toast.warning("Please log in to access this!", { position: "top-right" });
-        }
-    };
+    
 
     return (
         <div>
@@ -31,7 +15,7 @@ const Navbar = () => {
                 </Link>
 
                 <div className="nav-bar-1">
-                    <Link to="/doctors" onClick={handleProtectedClick}>
+                    <Link to="/doctors" >
                         <p className="nav-btn">Doctors</p>
                     </Link>
                     <Link to="/error">
@@ -40,41 +24,22 @@ const Navbar = () => {
                     <Link to="/error">
                         <p className="nav-btn">Our&nbsp;services</p>
                     </Link>
-                    <Link to="/delivary" onClick={handleProtectedClick}>
+                    <Link to="/delivary" >
                         <p className="nav-btn">Delivery</p>
                     </Link>
-                    <Link to="/track" onClick={handleProtectedClick}>
+                    <Link to="/track" >
                         <p className="nav-btn">Track</p>
                     </Link>
                     <Link to="/error">
                         <p className="nav-btn">Contact</p>
                     </Link>
+                    {/* <Link to="/reports">
+                    <p>Report.Smile</p>
+                    </Link> */}
+
                 </div>
 
-                <div className="flex items-center gap-4">
-                    {isAuthenticated ? (
-                        <>
-                            <div className="flex items-center gap-2">
-                                <span className="text-black font-semibold">
-                                    {user.username || "User"}
-                                </span>
-                                <FaUserCircle className="text-2xl text-gray-300" />
-                            </div>
-                            <button 
-                                className="logout-btn bg-red-500 text-white px-4 py-1 rounded-md hover:bg-red-600"
-                                onClick={handleLogout}
-                            >
-                                Logout
-                            </button>
-                        </>
-                    ) : (
-                        <Link to="/auth">
-                            <button className="border rounded-md border-black flex p-2 items-center gap-2">
-                                Login/Register
-                            </button>
-                        </Link>
-                    )}
-                </div>
+              
             </div>
         </div>
     );
