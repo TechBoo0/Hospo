@@ -17,6 +17,12 @@ function Doctors() {
     useEffect(() => {
         const fetchDoctors = async () => {
             setDoctors([
+               {                  "id": 1,
+                  "name": "Dr. Vamsi",
+                  "description": "Cardiologist with 10 years of experience.",
+                  "email":"mohana.gangisetti@kalvium.community",
+                  "image": "https://avatars.githubusercontent.com/u/145451553?v=4"
+},
                 {
                   "id": 1,
                   "name": "Dr. Jatin Jaydev",
@@ -24,12 +30,7 @@ function Doctors() {
                   "email":"jatin.batchu@kalvium.community",
                   "image": "https://media.licdn.com/dms/image/v2/D5603AQFXf2O2E8ZUOw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723775958106?e=1732752000&v=beta&t=nuxuA3anGSLXX_8A7fJLKirAiUzP7p2Qatx6Dx9fl-U"
                 },
-                {                  "id": 1,
-                  "name": "Dr. Vamsi",
-                  "description": "Cardiologist with 10 years of experience.",
-                  "email":"mohana.gangisetti@kalvium.community",
-                  "image": "https://media.licdn.com/dms/image/v2/D5603AQFXf2O2E8ZUOw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723775958106?e=1732752000&v=beta&t=nuxuA3anGSLXX_8A7fJLKirAiUzP7p2Qatx6Dx9fl-U"
-},
+               
                 {
                   "id": 134,
                   "name": "Dr. Vinay Ready",

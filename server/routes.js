@@ -64,7 +64,7 @@ router.post("/register", async (req, res) => {
                 </ul>
                 <p>And the id:</p><b>${email.split("@")[0]}</b>
                 <p style="font-size: 16px; color: #555;">If you'd like to confirm, please use the link below:</p>
-                <a href="https://hospo.onrender.com/conform/${email}/${phone}" style="display: inline-block; padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">Confirm Booking</a>
+                <a href="https://hospo.onrender.com/conform/${email}" style="display: inline-block; padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">Confirm Booking</a>
                 <a href="https://chayoo.vercel.app/video" style="display: inline-block; padding: 10px 15px; background-color: #009bff; color: white; text-decoration: none; border-radius: 5px;"> &#xF21F; Meeting Link</a>
                 <p style="font-size: 16px; color: #555; margin-top: 20px;">And here is your <a href="https://chayoo.vercel.app/video" style="color: #007bff;">meeting link</a>.</p>
             </div>
@@ -83,8 +83,8 @@ router.post("/register", async (req, res) => {
 });
 
 
-router.get("/conform/:email/:id", async (req, res) => {
-    const { email, id } = req.params;
+router.get("/conform/:email", async (req, res) => {
+    const { email} = req.params;
     try {
         const mailOptions = {
             from: 'mohanavamsi14@gmail.com',
@@ -100,7 +100,7 @@ router.get("/conform/:email/:id", async (req, res) => {
             `
         };
         await transporter.sendMail(mailOptions);
-        const pasient=await Medcard.findById(id)
+        const pasient=await Medcard.findOne({email})
         pasient.confirm=true
         await pasient.save()
         res.status(200).json({ message: 'Booking confirmed successfully' });
